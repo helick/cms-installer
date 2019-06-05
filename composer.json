@@ -25,6 +25,11 @@
         "composer/composer": "^1.8",
         "squizlabs/php_codesniffer": "^3.4"
     },
+    "autoload": {
+        "psr-4": {
+            "Helick\\CMS\\": "src/"
+        }
+    },
     "extra": {
         "class": "Helick\\CMS\\Composer\\Plugin"
     },
