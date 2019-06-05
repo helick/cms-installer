@@ -85,7 +85,7 @@ final class Plugin implements PluginInterface, EventSubscriberInterface
             $source . '/wp-config.php.stub' => $dest . '/wp-config.php'
         ];
 
-        $files = array_filter(array_values($files), function ($file) {
+        $files = array_filter($files, function ($file) {
             return !file_exists($file);
         });
 
