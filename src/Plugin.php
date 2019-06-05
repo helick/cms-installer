@@ -36,7 +36,7 @@ final class Plugin implements PluginInterface, EventSubscriberInterface
     public function install(): void
     {
         $source = dirname(__DIR__, 1) . '/resources/stubs';
-        $dest   = dirname(__DIR__, 4) . '/web';
+        $dest   = dirname(__DIR__, 5) . '/web';
 
         copy($source . '/index.php.stub', $dest . '/index.php');
         copy($source . '/wp-config.php.stub', $dest . '/wp-config.php');
