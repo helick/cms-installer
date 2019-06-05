@@ -7,7 +7,7 @@
 [![Quality Score][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
 
-Composer plugin for installing the Helick CMS.
+A custom Composer plugin for installing the Helick CMS.
 
 ## Requirements
 

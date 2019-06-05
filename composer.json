@@ -1,7 +1,7 @@
 {
     "name": "helick/cms-installer",
     "type": "composer-plugin",
-    "description": "The Helick CMS installer",
+    "description": "A custom Composer plugin for installing the Helick CMS",
     "keywords": [
         "helick",
         "cms"
