@@ -1,6 +1,6 @@
 <?php
 
-namespace Helick\CMS\Composer;
+namespace Helick\Composer;
 
 use Composer\Composer;
 use Composer\EventDispatcher\EventSubscriberInterface;
@@ -35,8 +35,8 @@ final class Plugin implements PluginInterface, EventSubscriberInterface
      */
     public function install(): void
     {
-        $source = dirname(__DIR__, 2) . '/resources/stubs';
-        $dest   = dirname($source, 3) . '/web';
+        $source = dirname(__DIR__, 1) . '/resources/stubs';
+        $dest   = dirname($source, 2) . '/web';
 
         copy($source . '/index.php.stub', $dest . '/index.php');
         copy($source . '/wp-config.php.stub', $dest . '/wp-config.php');

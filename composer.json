@@ -27,11 +27,11 @@
     },
     "autoload": {
         "psr-4": {
-            "Helick\\CMS\\": "src/"
+            "Helick\\Composer\\": "src/"
         }
     },
     "extra": {
-        "class": "Helick\\CMS\\Composer\\Plugin"
+        "class": "Helick\\Composer\\Plugin"
     },
     "scripts": {
         "lint": [
