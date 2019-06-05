@@ -27,8 +27,12 @@ $ composer require helick/cms-installer
 ## Testing
 
 ``` bash
-$ composer lint
+$ composer test
 ```
+
+## Contributing
+
+Please see [CONTRIBUTING](CONTRIBUTING.md) and [CODE_OF_CONDUCT](CODE_OF_CONDUCT.md) for details.
 
 ## Security
 
