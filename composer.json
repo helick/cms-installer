@@ -1,0 +1,39 @@
+{
+    "name": "helick/cms-installer",
+    "type": "composer-plugin",
+    "description": "The Helick CMS installer",
+    "keywords": [
+        "helick",
+        "cms"
+    ],
+    "license": "MIT",
+    "support": {
+        "issues": "https://github.com/helick/cms-installer/issues",
+        "source": "https://github.com/helick/cms-installer"
+    },
+    "authors": [
+        {
+            "name": "Evgenii Nasyrov",
+            "email": "evgenii@helick.io"
+        }
+    ],
+    "require": {
+        "php": ">=7.1",
+        "composer-plugin-api": "^1.1"
+    },
+    "require-dev": {
+        "composer/composer": "^1.8",
+        "squizlabs/php_codesniffer": "^3.4"
+    },
+    "extra": {
+        "class": "Helick\\CMS\\Composer\\Plugin"
+    },
+    "scripts": {
+        "lint": [
+            "phpcs -p --standard=psr2 src"
+        ]
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
