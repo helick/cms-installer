@@ -89,8 +89,8 @@ final class Plugin implements PluginInterface, EventSubscriberInterface
             return !file_exists($file);
         });
 
-        foreach ($files as $source => $dest) {
-            copy($source, $dest);
+        foreach ($files as $fileSource => $fileDest) {
+            copy($fileSource, $fileDest);
         }
     }
 }
