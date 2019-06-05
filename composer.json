@@ -31,6 +31,8 @@
     "scripts": {
         "lint": [
             "phpcs -p --standard=psr2 src"
+        ],
+        "test": [
         ]
     },
     "config": {
