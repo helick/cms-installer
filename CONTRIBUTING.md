@@ -6,7 +6,7 @@ We accept contributions via Pull Requests on [Github](https://github.com/helick/
 
 ## Pull Requests
 
-- **[PSR-2 Coding Standard](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md)** - Check the code style with ``$ composer lint``.
+- **[PSR-2 Coding Standard](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md)** - Check the code style with `$ composer lint`.
 
 - **Add tests** - Your patch won't be accepted if it doesn't have tests.
 
