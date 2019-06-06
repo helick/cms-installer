@@ -35,30 +35,32 @@ final class Plugin implements PluginInterface, EventSubscriberInterface
      */
     public function install(): void
     {
-        $source = dirname(__DIR__, 1) . '/resources/stubs';
-        $dest   = dirname(__DIR__, 4);
+        $sourceDir = dirname(__DIR__, 1) . '/resources/stubs';
+        $destDir   = dirname(__DIR__, 4);
 
-        $this->createDirectories($dest);
+        $this->createDirectories($destDir);
 
-        $this->copyFiles($source, $dest);
+        $this->copyFiles($sourceDir, $destDir);
     }
 
     /**
      * Create necessary directories.
      *
-     * @param string $dest
+     * @param string $destDir
      *
      * @return void
      */
-    private function createDirectories(string $dest): void
+    private function createDirectories(string $destDir): void
     {
         $directories = [
-            $dest . '/web',
-            $dest . '/web/content',
-            $dest . '/web/content/mu-plugins',
-            $dest . '/web/content/plugins',
-            $dest . '/web/content/themes',
-            $dest . '/web/content/uploads',
+            $destDir . '/config',
+            $destDir . '/config/environments',
+            $destDir . '/web',
+            $destDir . '/web/content',
+            $destDir . '/web/content/mu-plugins',
+            $destDir . '/web/content/plugins',
+            $destDir . '/web/content/themes',
+            $destDir . '/web/content/uploads',
         ];
 
         $directories = array_filter($directories, function ($directory) {
@@ -73,24 +75,27 @@ final class Plugin implements PluginInterface, EventSubscriberInterface
     /**
      * Copy necessary files.
      *
-     * @param string $source
-     * @param string $dest
+     * @param string $sourceDir
+     * @param string $destDir
      *
      * @return void
      */
-    private function copyFiles(string $source, string $dest): void
+    private function copyFiles(string $sourceDir, string $destDir): void
     {
         $files = [
-            $source . '/web/index.php.stub'     => $dest . '/web/index.php',
-            $source . '/web/wp-config.php.stub' => $dest . '/web/wp-config.php',
+            '/config/environments/development.php',
+            '/config/environments/staging.php',
+            '/config/application.php',
+            '/web/index.php',
+            '/web/wp-config.php',
         ];
 
-        $files = array_filter($files, function ($file) {
-            return !file_exists($file);
+        $files = array_filter($files, function ($file) use ($destDir) {
+            return !file_exists($destDir . $file);
         });
 
-        foreach ($files as $fileSource => $fileDest) {
-            copy($fileSource, $fileDest);
+        foreach ($files as $file) {
+            copy($sourceDir . $file . '.stub', $destDir . $file);
         }
     }
 }
