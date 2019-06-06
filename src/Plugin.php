@@ -88,6 +88,7 @@ final class Plugin implements PluginInterface, EventSubscriberInterface
             '/config/application.php',
             '/web/index.php',
             '/web/wp-config.php',
+            '/wp-cli.yml',
         ];
 
         $files = array_filter($files, function ($file) use ($destDir) {
