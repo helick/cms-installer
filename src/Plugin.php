@@ -36,7 +36,7 @@ final class Plugin implements PluginInterface, EventSubscriberInterface
     public function install(): void
     {
         $source = dirname(__DIR__, 1) . '/resources/stubs';
-        $dest   = dirname(__DIR__, 4) . '/web';
+        $dest   = dirname(__DIR__, 4);
 
         $this->createDirectories($dest);
 
@@ -53,12 +53,12 @@ final class Plugin implements PluginInterface, EventSubscriberInterface
     private function createDirectories(string $dest): void
     {
         $directories = [
-            $dest,
-            $dest . '/content',
-            $dest . '/content/mu-plugins',
-            $dest . '/content/plugins',
-            $dest . '/content/themes',
-            $dest . '/content/uploads',
+            $dest . '/web',
+            $dest . '/web/content',
+            $dest . '/web/content/mu-plugins',
+            $dest . '/web/content/plugins',
+            $dest . '/web/content/themes',
+            $dest . '/web/content/uploads',
         ];
 
         $directories = array_filter($directories, function ($directory) {
@@ -81,8 +81,8 @@ final class Plugin implements PluginInterface, EventSubscriberInterface
     private function copyFiles(string $source, string $dest): void
     {
         $files = [
-            $source . '/index.php.stub'     => $dest . '/index.php',
-            $source . '/wp-config.php.stub' => $dest . '/wp-config.php'
+            $source . '/web/index.php.stub'     => $dest . '/web/index.php',
+            $source . '/web/wp-config.php.stub' => $dest . '/web/wp-config.php',
         ];
 
         $files = array_filter($files, function ($file) {
