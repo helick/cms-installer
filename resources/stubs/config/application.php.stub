@@ -8,7 +8,7 @@
  * can.
  */
 
-use Dotenv;
+use Dotenv\Dotenv;
 use Roots\WPConfig\Config;
 
 /**
