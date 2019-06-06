@@ -10,6 +10,8 @@
 
 use Dotenv\Dotenv;
 use Roots\WPConfig\Config;
+use const Helick\CMS\ROOT_DIR;
+use const Helick\CMS\WEB_DIR;
 
 /**
  * Expose global env() function
@@ -19,8 +21,8 @@ Env::init();
 /**
  * Use Dotenv to set required environment variables
  */
-$dotenv = Dotenv::create(Helick\CMS\ROOT_DIR);
-if (file_exists(Helick\CMS\ROOT_DIR . '/.env')) {
+$dotenv = Dotenv::create(ROOT_DIR);
+if (file_exists(ROOT_DIR . '/.env')) {
     $dotenv->load();
     $dotenv->required(['WP_HOME', 'WP_SITEURL', 'DB_NAME', 'DB_USER', 'DB_PASSWORD']);
 }
@@ -48,7 +50,7 @@ Config::define('WP_SITEURL', env('WP_SITEURL'));
  * Define custom content directory
  */
 Config::define('CONTENT_DIR', '/content');
-Config::define('WP_CONTENT_DIR', Helick\CMS\WEB_DIR . Config::get('CONTENT_DIR'));
+Config::define('WP_CONTENT_DIR', WEB_DIR . Config::get('CONTENT_DIR'));
 Config::define('WP_CONTENT_URL', Config::get('WP_HOME') . Config::get('CONTENT_DIR'));
 
 /**
@@ -89,15 +91,22 @@ Config::define('WP_DEBUG_DISPLAY', false);
 Config::define('SCRIPT_DEBUG', false);
 ini_set('display_errors', 0);
 
-
-$env_config = __DIR__ . '/environments/' . WP_ENV . '.php';
-if (file_exists($env_config)) {
-    require_once $env_config;
+/**
+ * Load environment config
+ */
+$envConfig = __DIR__ . '/environments/' . WP_ENV . '.php';
+if (file_exists($envConfig)) {
+    require_once $envConfig;
 }
+
+/**
+ * Apply config
+ */
+Config::apply();
 
 /**
  * Bootstrap WordPress
  */
 if (!defined('ABSPATH')) {
-    define('ABSPATH', Helick\CMS\WEB_DIR . '/wordpress/');
+    define('ABSPATH', WEB_DIR . '/wordpress/');
 }
