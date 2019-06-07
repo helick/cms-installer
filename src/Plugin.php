@@ -88,6 +88,7 @@ final class Plugin implements PluginInterface, EventSubscriberInterface
             '/config/application.php',
             '/web/index.php',
             '/web/wp-config.php',
+            '/.env.example',
             '/wp-cli.yml',
         ];
 
