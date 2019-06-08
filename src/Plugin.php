@@ -15,8 +15,9 @@ final class Plugin implements PluginInterface, EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return [
-            'post-install-cmd' => ['install'],
-            'post-update-cmd'  => ['install'],
+            'post-install-cmd'   => ['install'],
+            'post-update-cmd'    => ['install'],
+            'post-autoload-dump' => ['discover'],
         ];
     }
 
@@ -44,6 +45,29 @@ final class Plugin implements PluginInterface, EventSubscriberInterface
     }
 
     /**
+     * Discover mu-plugins.
+     *
+     * @return void
+     */
+    public function discover(): void
+    {
+        $rootDir = dirname(__DIR__, 4);
+
+        require_once $rootDir . '/web/wordpress/wp-admin/includes/plugin.php';
+
+        $autoPlugins = get_plugins('/../mu-plugins');
+        $muPlugins   = get_mu_plugins();
+
+        $plugins = array_diff_key($autoPlugins, $muPlugins);
+        $plugins = array_keys($plugins);
+
+        $manifestPath = $rootDir . '/bootstrap/cache/mu-plugins.php';
+        $manifestData = '<?php return ' . var_export($plugins, true) . ';';
+
+        file_put_contents($manifestPath, $manifestData);
+    }
+
+    /**
      * Create necessary directories.
      *
      * @param string $destDir
@@ -53,6 +77,8 @@ final class Plugin implements PluginInterface, EventSubscriberInterface
     private function createDirectories(string $destDir): void
     {
         $directories = [
+            $destDir . '/bootstrap',
+            $destDir . '/bootstrap/cache',
             $destDir . '/config',
             $destDir . '/config/environments',
             $destDir . '/web',
