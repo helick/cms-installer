@@ -85,6 +85,7 @@ final class Plugin implements PluginInterface, EventSubscriberInterface
     private function copyFiles(string $sourceDir, string $destDir): void
     {
         $files = [
+            '/bootstrap/cache/mu-plugins.php',
             '/config/environments/development.php',
             '/config/environments/staging.php',
             '/config/application.php',
