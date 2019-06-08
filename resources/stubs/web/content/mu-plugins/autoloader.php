@@ -1,9 +1,12 @@
 <?php
 /*
 Plugin Name:    Helick Autoloader
+Plugin URI:     https://helick.io/
 Description:    The Helick autoloader enables standard plugins to be loaded as must-use ones.
+Version:        1.0.0
 Author:         Evgenii Nasyrov
-Author URI:     https://helick.io/
+Author URI:     mailto:evgenii@helick.io
+License:        MIT License
 */
 
 use const Helick\CMS\ROOT_DIR;
