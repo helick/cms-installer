@@ -86,6 +86,7 @@ final class Plugin implements PluginInterface, EventSubscriberInterface
     {
         $files = [
             '/bootstrap/cache/mu-plugins.php',
+            '/bootstrap/cache/required-mu-plugins.php',
             '/config/environments/development.php',
             '/config/environments/staging.php',
             '/config/application.php',
