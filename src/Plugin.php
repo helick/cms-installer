@@ -15,9 +15,8 @@ final class Plugin implements PluginInterface, EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return [
-            'post-install-cmd'   => ['install'],
-            'post-update-cmd'    => ['install'],
-            'post-autoload-dump' => ['discover'],
+            'post-install-cmd' => ['install'],
+            'post-update-cmd'  => ['install'],
         ];
     }
 
@@ -42,29 +41,6 @@ final class Plugin implements PluginInterface, EventSubscriberInterface
         $this->createDirectories($destDir);
 
         $this->copyFiles($sourceDir, $destDir);
-    }
-
-    /**
-     * Discover mu-plugins.
-     *
-     * @return void
-     */
-    public function discover(): void
-    {
-        $rootDir = dirname(__DIR__, 4);
-
-        require_once $rootDir . '/web/wordpress/wp-admin/includes/plugin.php';
-
-        $autoPlugins = get_plugins('/../mu-plugins');
-        $muPlugins   = get_mu_plugins();
-
-        $plugins = array_diff_key($autoPlugins, $muPlugins);
-        $plugins = array_keys($plugins);
-
-        $manifestPath = $rootDir . '/bootstrap/cache/mu-plugins.php';
-        $manifestData = '<?php return ' . var_export($plugins, true) . ';';
-
-        file_put_contents($manifestPath, $manifestData);
     }
 
     /**
@@ -109,6 +85,7 @@ final class Plugin implements PluginInterface, EventSubscriberInterface
     private function copyFiles(string $sourceDir, string $destDir): void
     {
         $files = [
+            '/bootstrap/cache/mu-plugins.php',
             '/config/environments/development.php',
             '/config/environments/staging.php',
             '/config/application.php',
