@@ -89,6 +89,7 @@ final class Plugin implements PluginInterface, EventSubscriberInterface
             '/config/environments/development.php',
             '/config/environments/staging.php',
             '/config/application.php',
+            '/web/content/mu-plugins/autoloader.php',
             '/web/index.php',
             '/web/wp-config.php',
             '/.env.example',
