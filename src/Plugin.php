@@ -53,24 +53,24 @@ final class Plugin implements PluginInterface, EventSubscriberInterface
     private function createDirectories(string $destDir): void
     {
         $directories = [
-            $destDir . '/bootstrap',
-            $destDir . '/bootstrap/cache',
-            $destDir . '/config',
-            $destDir . '/config/environments',
-            $destDir . '/web',
-            $destDir . '/web/content',
-            $destDir . '/web/content/mu-plugins',
-            $destDir . '/web/content/plugins',
-            $destDir . '/web/content/themes',
-            $destDir . '/web/content/uploads',
+            '/bootstrap',
+            '/bootstrap/cache',
+            '/config',
+            '/config/environments',
+            '/web',
+            '/web/content',
+            '/web/content/mu-plugins',
+            '/web/content/plugins',
+            '/web/content/themes',
+            '/web/content/uploads',
         ];
 
-        $directories = array_filter($directories, function ($directory) {
-            return !is_dir($directory);
+        $directories = array_filter($directories, function ($directory) use ($destDir) {
+            return !is_dir($destDir . $directory);
         });
 
         foreach ($directories as $directory) {
-            mkdir($directory);
+            mkdir($destDir . $directory);
         }
     }
 
