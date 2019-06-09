@@ -19,7 +19,8 @@
     ],
     "require": {
         "php": ">=7.1",
-        "composer-plugin-api": "^1.1"
+        "composer-plugin-api": "^1.1",
+        "roots/soil": "^3.8"
     },
     "require-dev": {
         "composer/composer": "^1.8",
