@@ -14,7 +14,7 @@ use const Helick\CMS\ROOT_DIR;
 /**
  * Load the required must-use plugins.
  */
-$requiredPlugins = require ROOT_DIR . '/bootstrap/cache/required-mu-plugins.php';
+$requiredPlugins = require ROOT_DIR . '/bootstrap/cache/plugins.php';
 
 array_walk($requiredPlugins, static function (string $plugin) {
     require __DIR__ . DIRECTORY_SEPARATOR . $plugin;
