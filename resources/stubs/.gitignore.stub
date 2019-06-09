@@ -1,0 +1,18 @@
+# Content
+web/content
+
+# WordPress
+web/wordpress
+web/index.php
+web/wp-config.php
+
+# Dotenv
+.env
+.env.example
+
+# Composer
+vendor
+composer.lock
+
+# WP-CLI
+wp-cli.yml
