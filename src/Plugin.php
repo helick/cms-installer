@@ -93,6 +93,7 @@ final class Plugin implements PluginInterface, EventSubscriberInterface
             '/web/content/mu-plugins/autoloader.php',
             '/web/index.php',
             '/web/wp-config.php',
+            '/.gitattributes',
             '/.gitignore',
             '/.env.example',
             '/wp-cli.yml',
