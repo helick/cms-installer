@@ -15,7 +15,6 @@ web/wp-config.php
 
 # Composer
 vendor
-composer.lock
 
 # WP-CLI
 wp-cli.yml
