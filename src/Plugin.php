@@ -15,8 +15,8 @@ final class Plugin implements PluginInterface, EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return [
-            'pre-install-cmd' => ['install'],
-            'pre-update-cmd'  => ['install'],
+            'post-install-cmd' => ['install'],
+            'post-update-cmd'  => ['install'],
         ];
     }
 
