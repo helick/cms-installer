@@ -1,6 +1,6 @@
 <?php
 
-namespace Helick\Composer;
+namespace Helick\CMSInstaller;
 
 use Composer\Composer;
 use Composer\EventDispatcher\EventSubscriberInterface;
